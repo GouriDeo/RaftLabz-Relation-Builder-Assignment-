@@ -1,6 +1,7 @@
 const { db } = require('../model/model');
 const User = require('../model/model');
 
+//add person
 exports.addUser = async function(req,res){
     var userExist = await User.findOne({
         name: req.body.name       
@@ -20,6 +21,7 @@ exports.addUser = async function(req,res){
     }  
 }
 
+//adding tag
 exports.addtag = async function(req,res){
     var userExist = await User.findOne({
         name : req.body.name1
@@ -51,6 +53,7 @@ exports.addtag = async function(req,res){
     }
 }
 
+//finding relation
 exports.findRelation = async function(req,res){
     var userExist = await User.findOne({
         name : req.body.name1
@@ -62,7 +65,6 @@ exports.findRelation = async function(req,res){
                     resultOne =userExist.name+" > "+req.body.name2
             }
         }
-       // console.log(userExist.tag[0].person);
     }
 
     if(userExist){
